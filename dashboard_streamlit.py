@@ -231,9 +231,12 @@ def main():
 
     if uploaded_file is not None:
         try:
-            sbox = load_sbox(uploaded_file)
+            df = pd.read_excel(uploaded_file, header=None)
             st.subheader("📤 Uploaded S-Box Matrix")
-            st.dataframe(pd.DataFrame(sbox))
+            st.dataframe(df)
+
+            #Konversi Dataframe ke list
+            sbox = df.values.flatten().tolist()
 
             result = []
             for metric_name in selected_metrics:
