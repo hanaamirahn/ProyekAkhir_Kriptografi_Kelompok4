@@ -238,6 +238,7 @@ def main():
             #Konversi Dataframe ke list
             sbox = df.values.flatten().tolist()
 
+
             result = []
             for metric_name in selected_metrics:
                 metric_func = metrics[metric_name]
@@ -258,8 +259,8 @@ def main():
                     "Value": st.column_config.Column(
                         width="medium",
                     ),
-                }
-            )
+                }
+            )
 
         
             # Export as CSV or Excel
