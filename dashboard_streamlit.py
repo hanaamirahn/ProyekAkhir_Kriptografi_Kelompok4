@@ -249,7 +249,17 @@ def main():
 
             st.subheader("📊 The Results")
             results_df = pd.DataFrame(result)
-            st.dataframe(results_df.style.format({"Value": "{:.6f}"}))
+            st.dataframe(
+                results_df.style.format({"Value": "{:.6f}"}),
+                column_config={
+                    "Metrics": st.column_config.Column(
+                        width="medium",
+                    ),
+                    "Value": st.column_config.Column(
+                        width="medium",
+                    ),
+                }
+            )
 
         
             # Export as CSV or Excel
